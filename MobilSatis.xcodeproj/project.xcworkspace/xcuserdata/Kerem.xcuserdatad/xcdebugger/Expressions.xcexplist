@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[CSExpenseReportViewController getExpenseReportFromBW:anEndDate:]:CSExpenseReportViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CSExpenseReportViewController tableView:cellForRowAtIndexPath:]:CSExpenseReportViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CSSurveySelectionViewController getResponseWithString:andSender:]:CSSurveySelectionViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CSSurveyQuestionsViewController confirmSurvey]:CSSurveyQuestionsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

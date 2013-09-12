@@ -1,0 +1,20 @@
+<MobileAnalytic>
+    <Dashboard>
+        <Chart Name="Sales" Title="" ChartType="Column" Query="CustomerSales">
+            <Category Format="ShortMonth" Column="Month" DisplayName="Ay" />
+            <Values>
+                <Value Format="" Expression="SalesAmount" ValueSequence="1" DisplayName="Satış Miktarı" />
+            </Values>
+        </Chart>
+    </Dashboard>
+    <DashboardLayout>
+        <Landscape>
+            <!-- Dashboard display in Landscape Orientation --> <!-- Column Chart occupy 60% of the screen height and 100% width -->
+            <Layout Name="Sales" Top="0" Left="0" Width="100" Height="100" />
+        </Landscape>
+        <Portrait>
+            <!-- Dashboard display in Portrait Orientation --> <!-- Column Chart occupy 50% of the screen height and 100% width -->
+            <Layout Name="Sales" Top="0" Left="0" Width="100" Height="100" />
+        </Portrait>
+    </DashboardLayout>
+</MobileAnalytic>
