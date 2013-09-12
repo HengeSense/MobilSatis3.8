@@ -10,7 +10,7 @@
 #import "CSLoginViewController.h"
 #import "CSGeovisionHandler.h"
 #import "CustomNavigationBarController.h"
-
+//alp iyiki geldin
 @implementation CSAppDelegate
 
 @synthesize window = _window;
