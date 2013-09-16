@@ -398,7 +398,7 @@
                     
                     NSString *partner     = [partners objectAtIndex:sayac];
                     NSString *partnerName = [name_org1 objectAtIndex:sayac];
-                    NSString *sales       = [salesLitre objectAtIndex:sayac];
+                    NSString *sales       = [ABHXMLHelper correctNumberValue:[[[salesLitre objectAtIndex:sayac] componentsSeparatedByString:@"."] objectAtIndex:0]];
                     NSString *visit       = [visitCount objectAtIndex:sayac];
                     NSString *visitDate   = [lastVisit objectAtIndex:sayac];
                     

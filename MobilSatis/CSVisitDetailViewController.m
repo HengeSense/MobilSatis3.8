@@ -87,7 +87,7 @@
             }else{
                 [picker setToRecipients:mailList];
          }
-        [picker setCcRecipients:[NSArray arrayWithObject:@"saziye.ceylan@tr.anadoluefes.com"]];
+//        [picker setCcRecipients:[NSArray arrayWithObject:@"saziye.ceylan@tr.anadoluefes.com"]];
     }
     @catch (NSException *exception) {
         

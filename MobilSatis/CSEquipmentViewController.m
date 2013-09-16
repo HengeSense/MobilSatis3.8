@@ -54,7 +54,7 @@
 }
 
 - (IBAction)segmentTapped:(id)sender{
-        
+    
     UISegmentedControl *myControl = (UISegmentedControl*) sender;
     if ([myControl selectedSegmentIndex] == 0) {
         self.isEfesActive = YES;
@@ -78,14 +78,14 @@
     [sapHandler addTableWithName:@"OTHER_COOLERS" andColumns:[NSMutableArray arrayWithObjects:@"PRODUCT_ID", @"TANIM",@"MIKTAR", nil]];
     [sapHandler addTableWithName:@"OTHER_COOLER_LIST" andColumns:[NSMutableArray arrayWithObjects:@"URUNID", @"TANIM", @"TIP", nil]];
     [super playAnimationOnView:self.view];
-
+    
     [sapHandler prepCall];
     //[activityIndicator startAnimating];
 }
 
 -(void)getResponseWithString:(NSString *)myResponse andSender:(ABHSAPHandler *)me{
     [super stopAnimationOnView];
-
+    
     if ([CoreDataHandler isInternetConnectionNotAvailable]) {
         
         coolers = [[NSMutableArray alloc] init];
@@ -123,41 +123,39 @@
     else
     {
         if ([[me RFCNameLine] rangeOfString:@"ZMOB_GET_COOLERS_OF_CUSTOMER" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-       
+            
             NSString *stockTime = [[ABHXMLHelper getValuesWithTag:@"EX_RETURN" fromEnvelope:myResponse] objectAtIndex:0];
-        
+            
             if ([stockTime isEqualToString:@"S"]) {
                 [self stockTakingTime];
             }
-        
+            
             [self initEfesCoolersWithEnvelope:[[ABHXMLHelper getValuesWithTag:@"ZMOB_TEYIT_ITM_STR" fromEnvelope:myResponse] objectAtIndex:0]];
             [self initOtherCoolersWithEnvelope:[[ABHXMLHelper getValuesWithTag:@"ZMOB_OTHR_COOLER" fromEnvelope:myResponse] objectAtIndex:0]];
             [self initOtherCoolerListWithEnvelope:[[ABHXMLHelper getValuesWithTag:@"ZMOB_COOLER_STR" fromEnvelope:myResponse] objectAtIndex:0]];
             [self checkExistingCoreDataToDelete];
             [self saveCoolerListToCoreData];
         }
-    
-        else if ([[me RFCNameLine] rangeOfString:@"ZMOB_COOLER_UPDATE" options:NSCaseInsensitiveSearch].location != NSNotFound) {
         
+        else if ([[me RFCNameLine] rangeOfString:@"ZMOB_COOLER_UPDATE" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            
             NSString *buff = [[ABHXMLHelper getValuesWithTag:@"E_RETURN" fromEnvelope:myResponse] objectAtIndex:0];
-                
+            
             if ([buff isEqualToString:@"T"])
             {
                 [self coolerStockConfirm:YES];
-                if (!isStockTakingTime) {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ekipman Sayımı" message:@"İşlem Başarılı." delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil];
-                    alert.tag = 2;
-                    [alert show];
-                }
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ekipman Sayımı" message:@"İşlem Başarılı." delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil];
+                alert.tag = 2;
+                [alert show];
             }
             else if ([buff isEqualToString:@"N"])
             {
                 NSString *name1 = [[ABHXMLHelper getValuesWithTag:@"E_NAME1" fromEnvelope:myResponse] objectAtIndex:0];
-            
+                
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ekipman Sayımı" message:[NSString stringWithFormat:@"Ekleyemeye çalıştığınız soğutucu %@ isimli müşteriye ait. Değiştirmek istediğinize emin misiniz ?",name1] delegate:self cancelButtonTitle:@"İptal" otherButtonTitles:@"Onayla", nil];
                 alert.tag = 5;
                 [alert show];
-            
+                
             }
             else
             {
@@ -168,7 +166,7 @@
             }
             if (isStockTakingTime) {
                 BOOL checker = [self isAllCoolerStockConfirm];
-            
+                
                 if (checker) {
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ekipman Sayımı" message:@"Bütün Soğutucular sayıldı." delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil];
                     alert.tag = 2;
@@ -176,12 +174,12 @@
                     [[self navigationItem] setHidesBackButton:NO animated:YES];
                 }
             }
-
+            
         }
-    
+        
         else if ([[me RFCNameLine] rangeOfString:@"ZMOB_SET_OTHER_COOLERS" options:NSCaseInsensitiveSearch].location != NSNotFound) {
             NSString *otherBuff = [[ABHXMLHelper getValuesWithTag:@"E_OTHER_RETURN" fromEnvelope:myResponse] objectAtIndex:0];
-        
+            
             if ([otherBuff isEqual:@"T"])
             {
                 if (isCoolerAddition)
@@ -190,13 +188,10 @@
                 }
                 else
                     [self coolerStockConfirm:YES];
-            
-                if (!isStockTakingTime)
-                {
+                
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ekipman Sayımı" message:@"İşlem Başarılı." delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil];
                     alert.tag = 2;
                     [alert show];
-                }
             }
             else
             {
@@ -206,7 +201,7 @@
             }
             if (isStockTakingTime) {
                 BOOL checker = [self isAllCoolerStockConfirm];
-            
+                
                 if (checker) {
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ekipman Sayımı" message:@"Bütün Soğutucular sayıldı." delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil];
                     alert.tag = 2;
@@ -229,7 +224,7 @@
 
 // tell the picker the title for a given component
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if ([otherCoolerList count] > 0) 
+    if ([otherCoolerList count] > 0)
         return [[otherCoolerList objectAtIndex:row] description];
     
     return @"";
@@ -297,7 +292,7 @@
     NSMutableArray *item_count = [ABHXMLHelper getValuesWithTag:@"item" fromEnvelope:envelope];
     NSMutableArray *product_id = [ABHXMLHelper getValuesWithTag:@"URUNID" fromEnvelope:envelope];
     NSMutableArray *descriptions = [ABHXMLHelper getValuesWithTag:@"TANIM" fromEnvelope:envelope];
-
+    
     for (int i = 0; i < [item_count count]; i++) {
         
         CSCooler *cooler = [[CSCooler alloc] init];
@@ -315,13 +310,12 @@
     }
     isStockTakingActive = YES;
     [[self navigationItem] setRightBarButtonItem:nil];
-
+    
     [table reloadData];
 }
 
 - (void)sendUpdatedCoolerInformation:(NSString *)kunnr{
     
-    //ZCRM_MUSTERI_MASTER
     ABHSAPHandler *sapHandler = [[ABHSAPHandler alloc] initWithConnectionUrl:[ABHConnectionInfo getConnectionUrl]];
     [sapHandler setDelegate:self];
     [sapHandler prepRFCWithHostName:[ABHConnectionInfo  getR3HostName] andClient:[ABHConnectionInfo getR3Client] andDestination:[ABHConnectionInfo getDestination] andSystemNumber:[ABHConnectionInfo getSystemNumber] andUserId:[ABHConnectionInfo getR3UserId] andPassword:[ABHConnectionInfo getR3Password] andRFCName:@"ZMOB_COOLER_UPDATE"];
@@ -378,10 +372,10 @@
     table.opaque = YES;
     table.backgroundView = nil;
     
-     textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 200, 300, 40)];
+    textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 200, 300, 40)];
     [textField setKeyboardType:UIKeyboardTypeNumberPad];
     [textField setHidden:YES];
-
+    
     self.isEfesActive = YES;
     self.isStockTakingActive = NO;
     self.isStockTakingTime = NO;
@@ -414,7 +408,7 @@
     
     // present and release the controller
     /*[self presentModalViewController: reader
-                            animated: YES];*/
+     animated: YES];*/
     
     
     [self.navigationController pushViewController:reader animated:YES];
@@ -423,9 +417,9 @@
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {
-
+    
     reader.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
-
+    
     // ADD: get the decode results
     id<NSFastEnumeration> results =
     [info objectForKey: ZBarReaderControllerResults];
@@ -441,11 +435,11 @@
     resultImage.image =
     [info objectForKey: UIImagePickerControllerOriginalImage];
     
-        // ADD: dismiss the controller (NB dismiss from the *reader*!)
+    // ADD: dismiss the controller (NB dismiss from the *reader*!)
     [self.navigationController popViewControllerAnimated:YES];
-   
+    
     self.barcodeText = resultText;
-
+    
     [self checkBarcode];
 }
 
@@ -474,12 +468,12 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [[self  navigationItem] setTitle:@"Soğutucular"];
-        
+    
     if (!isStockTakingActive) {
         barButton = [[UIBarButtonItem alloc] initWithTitle:@"Ekipman Sayımı" style:UIBarButtonSystemItemAction target:self action:@selector(beginStockTaking)];
         [[self navigationItem] setRightBarButtonItem:barButton];
     }
-
+    
 }
 
 - (IBAction)addCoolerToSystem:(id)sender{
@@ -506,12 +500,12 @@
     for (int i = 0; i < [coolers count]; i++) {
         if (!([[coolers objectAtIndex:i] stockTaking]))
             return NO;
-        }
+    }
     
     for (int i = 0; i < [other_coolers count]; i++) 
         if (!([[other_coolers objectAtIndex:i] stockTaking]))
             return NO;
-        
+    
     
     return YES;
 }
@@ -536,7 +530,7 @@
                 [self sendUpdatedCoolerInformation:[self.customer kunnr]];
                 break;
             case 3:
-            
+                
                 break;
             default:
                 break;
@@ -579,7 +573,7 @@
         }
     }
     [table reloadData];
-
+    
 }
 
 - (IBAction)getUpdatedCoolerQuantity {
@@ -640,8 +634,8 @@
         [[CoreDataHandler getManagedObject] deleteObject:temp];
     
     for (CDOCooler *temp in [customerDetail otherCoolers])
-         [[CoreDataHandler getManagedObject] deleteObject:temp];
-
+        [[CoreDataHandler getManagedObject] deleteObject:temp];
+    
     [customerDetail setCoolers:nil];
     [customerDetail setOtherCoolers:nil];
     
@@ -649,7 +643,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-
+    
     if ([alertView tag] == 1) {
         switch (buttonIndex) {
             case 0:
@@ -673,10 +667,10 @@
                 @finally {
                     
                 }
-            break;
-        default:
-            break;
-    }
+                break;
+            default:
+                break;
+        }
     }
     else if ([alertView tag] == 3) {
         switch (buttonIndex) {
@@ -684,7 +678,7 @@
                 [self.navigationController popViewControllerAnimated:YES];
                 break;
             case 1:
-//                [[self navigationItem] setHidesBackButton:YES animated:YES];
+                //                [[self navigationItem] setHidesBackButton:YES animated:YES];
                 break;
             default:
                 break;
@@ -765,7 +759,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-       
+    
     [[cell textLabel] setFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]];
     NSInteger row = [indexPath row];
     
@@ -788,7 +782,7 @@
             cell.imageView.image = [UIImage imageNamed:@"siyahappiconlar-06.png"];
         else
             cell.imageView.image = [UIImage imageNamed:@"siyahappiconlar-05.png"];
-        }
+    }
     
     
     return cell;

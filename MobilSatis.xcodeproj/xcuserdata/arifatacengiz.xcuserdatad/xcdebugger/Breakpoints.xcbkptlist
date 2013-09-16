@@ -26,7 +26,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "323"
          endingLineNumber = "323"
-         landmarkName = "-sendVisitDetailViaCoreData"
+         landmarkName = "-checkTextField"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -170,19 +170,6 @@
          startingLineNumber = "181"
          endingLineNumber = "181"
          landmarkName = "-alertView:clickedButtonAtIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "MobilSatis/CSAppDelegate.m"
-         timestampString = "400546487.700348"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-loginConfirmed:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

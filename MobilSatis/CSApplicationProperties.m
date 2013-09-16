@@ -9,7 +9,7 @@
 #import "CSApplicationProperties.h"
  
 @implementation CSApplicationProperties
-NSString *versionOfTheAppliaction = @"4.1"; 
+NSString *versionOfTheAppliaction = @"4.3"; 
 +(NSString*)getVersionOfApplication{
     return versionOfTheAppliaction;
 }
