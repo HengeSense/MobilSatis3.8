@@ -1088,6 +1088,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_SYMBOL_SEPARATION = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1098,6 +1100,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "CorePlot-CocoaTouch";
+				PROVISIONING_PROFILE = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC141B2A-D3F8-4341-A09E-F21179162530";
 				SYMROOT = "$(PROJECT_DIR)/../build";
 			};
 			name = Debug;
@@ -1106,6 +1110,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_SYMBOL_SEPARATION = YES;
 				OTHER_CFLAGS = "";
@@ -1115,6 +1121,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "CorePlot-CocoaTouch";
+				PROVISIONING_PROFILE = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC141B2A-D3F8-4341-A09E-F21179162530";
 				SYMROOT = "$(PROJECT_DIR)/../build";
 				ZERO_LINK = NO;
 			};
