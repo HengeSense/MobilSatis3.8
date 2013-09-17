@@ -115,7 +115,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -124,16 +124,13 @@
             return 2;
             break;
         case 1:
-            return 3;
+            return 4;
             break;
         case 2:
-            return 2;
+            return 5;
             break;
         case 3:
-            return 3;
-            break;
-        case 4:
-            return 3;
+            return 2;
             break;
         default:
             return 0;
@@ -159,40 +156,37 @@
     
     if (section == 0) {
         if (row == 0)
-            cell.textLabel.text = @"Bayii/Distr. Risk Raporu";
+            cell.textLabel.text = @"E-Rapor";
         if (row == 1)
             cell.textLabel.text = @"E-Satış Talep Tahmin Girişi";
     }
     else if (section == 1) {
-        if (row == 0)
-            cell.textLabel.text = @"Bakiye Görüntüle";
-        if (row == 1)
-            cell.textLabel.text = @"Talimatlar";
-        if (row == 2)
-            cell.textLabel.text = @"Vade Farkı";
-    }
-    else if (section == 2) {
-        if (row == 0)
-            cell.textLabel.text = @"DBS Toplam";
-        if (row == 1)
-            cell.textLabel.text = @"DBS Günlük";
-    }
-    else if (section == 3) {
         if (row == 0)
             cell.textLabel.text = @"Teminat Yönetimi";
         if (row == 1)
             cell.textLabel.text = @"Kredi Yönetimi";
         if (row == 2)
             cell.textLabel.text = @"Risk Göster";
-        
+        if (row == 3)
+            cell.textLabel.text = @"Bayii/Dist. Risk Raporu";
     }
-    else if (section == 4) {
+    else if (section == 2) {
+        if (row == 0)
+            cell.textLabel.text = @"Bakiye Görüntüleme";
+        if (row == 1)
+            cell.textLabel.text = @"Talimatlar";
+        if (row == 2)
+            cell.textLabel.text = @"Vade Farkı";
+        if (row == 3)
+            cell.textLabel.text = @"Ödemeler Tarih Aralığı";
+        if (row == 4)
+            cell.textLabel.text = @"Ödemeler Günlük";
+    }
+    else if (section == 3) {
         if (row == 0)
             cell.textLabel.text = @"Bekleyen Siparişler";
         if (row == 1)
             cell.textLabel.text = @"Bekleyen Litre";
-        if (row == 2)
-            cell.textLabel.text = @"E-Rapor";
         
     }
     
@@ -207,7 +201,7 @@
     
     if (section == 0) {
         if (row == 0)
-            [self viewRiskReports:[self user]];
+            [self showESatisWebPageWithImportParameters:@"Rapor Yazma"];
         if (row == 1)
 //            [self showESatisWebPageWithImportParameters:@"yillikTalepTahminGirisRapor"];
             [self showESatisWebPageWithImportParameters:@"TalepTahminGirisi"];
@@ -215,33 +209,31 @@
     }
     else if (section == 1) {
         if (row == 0)
-            [self showESatisWebPageWithImportParameters:@"bakiyeGoruntule"];
-        if (row == 1)
-            [self showESatisWebPageWithImportParameters:@"talimatlar"];
-        if (row == 2)
-            [self showESatisWebPageWithImportParameters:@"vadeFarki"];
-    }
-    else if (section == 2) {
-        if (row == 0)
-            [self showESatisWebPageWithImportParameters:@"dbsToplam"];
-        if (row == 1)
-            [self showESatisWebPageWithImportParameters:@"dbsGunluk"];
-    }
-    else if (section == 3) {
-        if (row == 0)
             [self showESatisWebPageWithImportParameters:@"teminatYonetimi"];
         if (row == 1)
             [self showESatisWebPageWithImportParameters:@"krediYonetimi"];
         if (row == 2)
             [self showESatisWebPageWithImportParameters:@"riskGetir"];
+        if (row == 3)
+            [self viewRiskReports:[self user]];
     }
-    else if (section == 4) {
+    else if (section == 2) {
+        if (row == 0)
+            [self showESatisWebPageWithImportParameters:@"bakiyeGoruntule"];
+        if (row == 1)
+            [self showESatisWebPageWithImportParameters:@"talimatlar"];
+        if (row == 2)
+            [self showESatisWebPageWithImportParameters:@"vadeFarki"];
+        if (row == 3)
+            [self showESatisWebPageWithImportParameters:@"dbsToplam"];
+        if (row == 4)
+            [self showESatisWebPageWithImportParameters:@"dbsGunluk"];
+    }
+    else if (section == 3) {
         if (row == 0)
             [self showESatisWebPageWithImportParameters:@"siparisListeleme"];
         if (row == 1)
             [self showESatisWebPageWithImportParameters:@"siparisDurumBilgisi"];
-        if (row == 2)
-            [self showESatisWebPageWithImportParameters:@"Rapor Yazma"];
     }
 }
 
@@ -252,19 +244,16 @@
     switch (section)
     {
         case 0:
-            sectionName = @"Borç Yönetimi ve Talep Tahmini";
+            sectionName = @"E-Satış Raporları ve Talep Tahmini";
             break;
         case 1:
-            sectionName = @"DTS Yönetimi";
-            break;
-        case 2:
-            sectionName = @"DBS Yönetimi";
-            break;
-        case 3:
             sectionName = @"Risk Yönetimi";
             break;
-        case 4:
-            sectionName = @"E-Satış Raporları";
+        case 2:
+            sectionName = @"Borç Yönetimi";
+            break;
+        case 3:
+            sectionName = @"Sipariş Yönetimi";
             break;
         default:
             sectionName = @"";
@@ -282,19 +271,16 @@
     switch (section)
     {
         case 0:
-            label.text = @"Borç Yönetimi ve Talep Tahmini";
+            label.text = @"E-Satış Raporları ve Talep Tahmini";
             break;
         case 1:
-            label.text = @"DTS Yönetimi";
-            break;
-        case 2:
-            label.text = @"DBS Yönetimi";
-            break;
-        case 3:
             label.text = @"Risk Yönetimi";
             break;
-        case 4:
-            label.text = @"E-Satış Raporları";
+        case 2:
+            label.text = @"Borç Yönetimi";
+            break;
+        case 3:
+            label.text = @"Sipariş Yönetimi";
             break;
         default:
             label.text = @"";
