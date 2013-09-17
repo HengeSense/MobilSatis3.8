@@ -285,6 +285,8 @@
 		9E0F4156165B962300D779C8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0F4154165B962300D779C8 /* Reachability.m */; };
 		9E0F415B165B962300D779C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0F415A165B962300D779C8 /* SystemConfiguration.framework */; };
 		9E0F415C165B962300D779C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0F415A165B962300D779C8 /* SystemConfiguration.framework */; };
+		9E14AB7E17E89CA600007F95 /* libMAKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E14AB7D17E89CA600007F95 /* libMAKit.a */; };
+		9E14AB7F17E89CA600007F95 /* libMAKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E14AB7D17E89CA600007F95 /* libMAKit.a */; };
 		9E156DE2174D293700F184DD /* abhGeoJSON.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9E156DE1174D293700F184DD /* abhGeoJSON.geojson */; };
 		9E156DE3174D293700F184DD /* abhGeoJSON.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9E156DE1174D293700F184DD /* abhGeoJSON.geojson */; };
 		9E1576381744FCB8008CBEB5 /* CSESatisReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1576361744FCB8008CBEB5 /* CSESatisReportsViewController.m */; };
@@ -398,8 +400,6 @@
 		9EF466A116411FA7007B1B00 /* CSCityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF4669E16411FA7007B1B00 /* CSCityListViewController.m */; };
 		9EF466A216411FA7007B1B00 /* CSCityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF4669F16411FA7007B1B00 /* CSCityListViewController.xib */; };
 		9EF466A316411FA7007B1B00 /* CSCityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF4669F16411FA7007B1B00 /* CSCityListViewController.xib */; };
-		9EF71C6E17E766E0009492BB /* libMAKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF71C6D17E766E0009492BB /* libMAKit.a */; };
-		9EF71C6F17E766E0009492BB /* libMAKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF71C6D17E766E0009492BB /* libMAKit.a */; };
 		9EFDF6D7172FD8A0000440E5 /* CSVisitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDF6D6172FD8A0000440E5 /* CSVisitDetailViewController.m */; };
 		9EFDF6D8172FD8A0000440E5 /* CSVisitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDF6D6172FD8A0000440E5 /* CSVisitDetailViewController.m */; };
 		E10B53951563BC01007D1CC3 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = E10B53931563BC01007D1CC3 /* donedown.png */; };
@@ -958,6 +958,7 @@
 		9E0F4153165B962300D779C8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		9E0F4154165B962300D779C8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		9E0F415A165B962300D779C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9E14AB7D17E89CA600007F95 /* libMAKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMAKit.a; sourceTree = "<group>"; };
 		9E156DE1174D293700F184DD /* abhGeoJSON.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = abhGeoJSON.geojson; sourceTree = "<group>"; };
 		9E1576351744FCB8008CBEB5 /* CSESatisReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSESatisReportsViewController.h; sourceTree = "<group>"; };
 		9E1576361744FCB8008CBEB5 /* CSESatisReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSESatisReportsViewController.m; sourceTree = "<group>"; };
@@ -1094,7 +1095,6 @@
 		9EF4669D16411FA7007B1B00 /* CSCityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCityListViewController.h; sourceTree = "<group>"; };
 		9EF4669E16411FA7007B1B00 /* CSCityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCityListViewController.m; sourceTree = "<group>"; };
 		9EF4669F16411FA7007B1B00 /* CSCityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSCityListViewController.xib; sourceTree = "<group>"; };
-		9EF71C6D17E766E0009492BB /* libMAKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMAKit.a; sourceTree = "<group>"; };
 		9EFDF6D6172FD8A0000440E5 /* CSVisitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVisitDetailViewController.m; sourceTree = "<group>"; };
 		E10B53931563BC01007D1CC3 /* donedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donedown.png; sourceTree = "<group>"; };
 		E110D00115CAB7200060D470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1237,7 +1237,7 @@
 				3C406BFD151FA93D007E7B52 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				E18A1D4E15CA68E7004BF5C0 /* libiconv.dylib in Frameworks */,
 				0CB46C2017CD0609006BA59C /* libzbar.a in Frameworks */,
-				9EF71C6E17E766E0009492BB /* libMAKit.a in Frameworks */,
+				9E14AB7E17E89CA600007F95 /* libMAKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1263,7 +1263,7 @@
 				E1D72AFA15BD6E4400F50053 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				E18A1D4415CA5C58004BF5C0 /* libiconv.dylib in Frameworks */,
 				0CB46C2117CD0609006BA59C /* libzbar.a in Frameworks */,
-				9EF71C6F17E766E0009492BB /* libMAKit.a in Frameworks */,
+				9E14AB7F17E89CA600007F95 /* libMAKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1353,7 +1353,7 @@
 		3C69B143147919FE00D10FFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9EF71C6D17E766E0009492BB /* libMAKit.a */,
+				9E14AB7D17E89CA600007F95 /* libMAKit.a */,
 				9ECFE1F2174FE595001FAAA1 /* libstdc++.dylib */,
 				9EA476BC16D13332000E6540 /* MediaPlayer.framework */,
 				9E0F415A165B962300D779C8 /* SystemConfiguration.framework */,
