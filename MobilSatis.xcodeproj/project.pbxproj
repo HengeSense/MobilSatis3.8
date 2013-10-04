@@ -35,6 +35,8 @@
 		0C546466178454EF0085D1F0 /* CSExpenseReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C546463178454EF0085D1F0 /* CSExpenseReportViewController.m */; };
 		0C546467178454EF0085D1F0 /* CSExpenseReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C546464178454EF0085D1F0 /* CSExpenseReportViewController.xib */; };
 		0C546468178454EF0085D1F0 /* CSExpenseReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C546464178454EF0085D1F0 /* CSExpenseReportViewController.xib */; };
+		0C615FC217FCD4DF005747BF /* libMAKit 17-17-19-953.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C615FC117FCD4DF005747BF /* libMAKit 17-17-19-953.a */; };
+		0C615FC317FCD4DF005747BF /* libMAKit 17-17-19-953.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C615FC117FCD4DF005747BF /* libMAKit 17-17-19-953.a */; };
 		0C7694EA1754DCEE00CD14B1 /* CSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC5ACD1754D78200850392 /* CSMasterViewController.m */; };
 		0C795F1F17C6A73E007B5BF2 /* CSJumpQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C795F1E17C6A73E007B5BF2 /* CSJumpQuestion.m */; };
 		0C795F2017C6A73E007B5BF2 /* CSJumpQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C795F1E17C6A73E007B5BF2 /* CSJumpQuestion.m */; };
@@ -398,8 +400,6 @@
 		9EF466A116411FA7007B1B00 /* CSCityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF4669E16411FA7007B1B00 /* CSCityListViewController.m */; };
 		9EF466A216411FA7007B1B00 /* CSCityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF4669F16411FA7007B1B00 /* CSCityListViewController.xib */; };
 		9EF466A316411FA7007B1B00 /* CSCityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF4669F16411FA7007B1B00 /* CSCityListViewController.xib */; };
-		9EF71C6E17E766E0009492BB /* libMAKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF71C6D17E766E0009492BB /* libMAKit.a */; };
-		9EF71C6F17E766E0009492BB /* libMAKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF71C6D17E766E0009492BB /* libMAKit.a */; };
 		9EFDF6D7172FD8A0000440E5 /* CSVisitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDF6D6172FD8A0000440E5 /* CSVisitDetailViewController.m */; };
 		9EFDF6D8172FD8A0000440E5 /* CSVisitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDF6D6172FD8A0000440E5 /* CSVisitDetailViewController.m */; };
 		E10B53951563BC01007D1CC3 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = E10B53931563BC01007D1CC3 /* donedown.png */; };
@@ -692,6 +692,7 @@
 		0C546462178454EF0085D1F0 /* CSExpenseReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSExpenseReportViewController.h; sourceTree = "<group>"; };
 		0C546463178454EF0085D1F0 /* CSExpenseReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSExpenseReportViewController.m; sourceTree = "<group>"; };
 		0C546464178454EF0085D1F0 /* CSExpenseReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSExpenseReportViewController.xib; sourceTree = "<group>"; };
+		0C615FC117FCD4DF005747BF /* libMAKit 17-17-19-953.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMAKit 17-17-19-953.a"; sourceTree = "<group>"; };
 		0C795F1D17C6A73E007B5BF2 /* CSJumpQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSJumpQuestion.h; sourceTree = "<group>"; };
 		0C795F1E17C6A73E007B5BF2 /* CSJumpQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSJumpQuestion.m; sourceTree = "<group>"; };
 		0CA6C1661785A84E001D719C /* CSSurveySelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSurveySelectionViewController.h; sourceTree = "<group>"; };
@@ -1094,7 +1095,6 @@
 		9EF4669D16411FA7007B1B00 /* CSCityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCityListViewController.h; sourceTree = "<group>"; };
 		9EF4669E16411FA7007B1B00 /* CSCityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCityListViewController.m; sourceTree = "<group>"; };
 		9EF4669F16411FA7007B1B00 /* CSCityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSCityListViewController.xib; sourceTree = "<group>"; };
-		9EF71C6D17E766E0009492BB /* libMAKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMAKit.a; sourceTree = "<group>"; };
 		9EFDF6D6172FD8A0000440E5 /* CSVisitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVisitDetailViewController.m; sourceTree = "<group>"; };
 		E10B53931563BC01007D1CC3 /* donedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donedown.png; sourceTree = "<group>"; };
 		E110D00115CAB7200060D470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1237,7 +1237,7 @@
 				3C406BFD151FA93D007E7B52 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				E18A1D4E15CA68E7004BF5C0 /* libiconv.dylib in Frameworks */,
 				0CB46C2017CD0609006BA59C /* libzbar.a in Frameworks */,
-				9EF71C6E17E766E0009492BB /* libMAKit.a in Frameworks */,
+				0C615FC217FCD4DF005747BF /* libMAKit 17-17-19-953.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1263,7 +1263,7 @@
 				E1D72AFA15BD6E4400F50053 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				E18A1D4415CA5C58004BF5C0 /* libiconv.dylib in Frameworks */,
 				0CB46C2117CD0609006BA59C /* libzbar.a in Frameworks */,
-				9EF71C6F17E766E0009492BB /* libMAKit.a in Frameworks */,
+				0C615FC317FCD4DF005747BF /* libMAKit 17-17-19-953.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1353,7 +1353,7 @@
 		3C69B143147919FE00D10FFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9EF71C6D17E766E0009492BB /* libMAKit.a */,
+				0C615FC117FCD4DF005747BF /* libMAKit 17-17-19-953.a */,
 				9ECFE1F2174FE595001FAAA1 /* libstdc++.dylib */,
 				9EA476BC16D13332000E6540 /* MediaPlayer.framework */,
 				9E0F415A165B962300D779C8 /* SystemConfiguration.framework */,
@@ -3012,8 +3012,8 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arif Ata  Cengiz (J4696487BQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arif Ata  Cengiz (J4696487BQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3034,8 +3034,9 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "MobilSatis-iPad";
-				PROVISIONING_PROFILE = "D9FD6796-5C17-4332-B78A-7E4C88B047E4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9FD6796-5C17-4332-B78A-7E4C88B047E4";
+				PROVISIONING_PROFILE = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
@@ -3049,8 +3050,8 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arif Ata  Cengiz (J4696487BQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arif Ata  Cengiz (J4696487BQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3071,8 +3072,9 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "MobilSatis-iPad";
-				PROVISIONING_PROFILE = "D9FD6796-5C17-4332-B78A-7E4C88B047E4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9FD6796-5C17-4332-B78A-7E4C88B047E4";
+				PROVISIONING_PROFILE = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
@@ -3086,8 +3088,8 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arif Ata  Cengiz (J4696487BQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arif Ata  Cengiz (J4696487BQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kerem Balaban (3ZR758CJVV)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3108,8 +3110,9 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "MobilSatis-iPad";
-				PROVISIONING_PROFILE = "D9FD6796-5C17-4332-B78A-7E4C88B047E4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9FD6796-5C17-4332-B78A-7E4C88B047E4";
+				PROVISIONING_PROFILE = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC141B2A-D3F8-4341-A09E-F21179162530";
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";

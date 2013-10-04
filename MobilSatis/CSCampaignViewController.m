@@ -71,12 +71,15 @@
     if (range.length > 0)
     {
         NSMutableArray *responses = [ABHXMLHelper getValuesWithTag:@"ZSD_T_KAMPANYA_B" fromEnvelope:myResponse];
+        NSMutableArray *responses2 = [ABHXMLHelper getValuesWithTag:@"ZSD_S_MESSAGE" fromEnvelope:myResponse];
         
         NSMutableArray *campId   = [[NSMutableArray alloc] init];
         NSMutableArray *campName = [[NSMutableArray alloc] init];
         NSMutableArray *begda    = [[NSMutableArray alloc] init];
         NSMutableArray *endda    = [[NSMutableArray alloc] init];
         NSMutableArray *perc     = [[NSMutableArray alloc] init];
+        NSMutableArray *messageId = [[NSMutableArray alloc] init];
+        NSMutableArray *message  = [[NSMutableArray alloc] init];
         
         campId   = [ABHXMLHelper getValuesWithTag:@"ZKMID" fromEnvelope:[responses objectAtIndex:0]];
         campName = [ABHXMLHelper getValuesWithTag:@"ZKMTX" fromEnvelope:[responses objectAtIndex:0]];
@@ -84,6 +87,11 @@
         endda    = [ABHXMLHelper getValuesWithTag:@"DATBI" fromEnvelope:[responses objectAtIndex:0]];
         perc     = [ABHXMLHelper getValuesWithTag:@"ZMING" fromEnvelope:[responses objectAtIndex:0]];
         
+        if ([responses2 count] > 0)
+        {
+            messageId = [ABHXMLHelper getValuesWithTag:@"ZKMID" fromEnvelope:[responses2 objectAtIndex:0]];
+            message   = [ABHXMLHelper getValuesWithTag:@"MESSAGE" fromEnvelope:[responses2 objectAtIndex:0]];
+        }
         
         if ([campId count] > 0) {
             
@@ -101,23 +109,63 @@
             }
         }
         
+        if ([message count] > 0)
+        {
+            for (int i = 0; i < [message count]; i++)
+            {
+                NSString *msgId = [message objectAtIndex:i];
+                NSString *msg = [message objectAtIndex:i];
+                
+                NSArray  *arr2 = [NSArray arrayWithObjects:msgId,msg,nil];
+                
+                [messageTable addObject:arr2];
+            }
+        }
+        
         [tableVC reloadData];
         [super stopAnimationOnView];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uyarı" message:[[messageTable objectAtIndex:0] objectAtIndex:1]delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
+        
+        alert.tag = 2;
     }
     else
     {
         [super stopAnimationOnView];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uyarı" message:@"Güncel kampanya bulunamamıştır!" delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
         
+        alert.tag = 1;
         [alert show];
         return;
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
-        [[self navigationController] popViewControllerAnimated:YES];
+    switch (alertView.tag) {
+        case 1:
+            if (buttonIndex == 0) {
+                [[self navigationController] popViewControllerAnimated:YES];
+            }
+            break;
+        case 2:
+            if (buttonIndex == 0)
+            {
+                if ([messageTable count] > 0)
+                {
+                    [messageTable removeObjectAtIndex:0];
+                    if ([messageTable count] > 0) {
+                        
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uyarı" message:[[messageTable objectAtIndex:0] objectAtIndex:1] delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
+                        
+                        alert.tag = 2;
+                    }
+                }
+            }
+            break;
+        default:
+            break;
     }
+    
 }
 
 #pragma tableView dataSources
@@ -137,7 +185,7 @@
     [[cell textLabel]setFont:[UIFont boldSystemFontOfSize:15]];
     
     [[cell detailTextLabel] setText:[NSString stringWithFormat: @"Gereken Min. Gerç: %@%@",[[campaignTable objectAtIndex:indexPath.row] objectAtIndex:4],@"%"]];
-
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
@@ -163,6 +211,7 @@
     tableVC.backgroundView = nil;
     
     campaignTable = [[NSMutableArray alloc] init];
+    messageTable = [[NSMutableArray alloc] init];
     
     [self getCampaignDataFromR3];
     // Do any additional setup after loading the view from its nib.

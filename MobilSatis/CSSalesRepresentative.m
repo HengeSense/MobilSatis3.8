@@ -9,5 +9,5 @@
 #import "CSSalesRepresentative.h"
 
 @implementation CSSalesRepresentative
-@synthesize kunnr,name2,tarih,saat,locationCoordinate;
+@synthesize kunnr,name2,telf1,tarih,saat,locationCoordinate;
 @end

@@ -78,12 +78,18 @@
         NSMutableArray *fiili   = [[NSMutableArray alloc] init];
         NSMutableArray *oran    = [[NSMutableArray alloc] init];
         NSMutableArray *gereken = [[NSMutableArray alloc] init];
-        
+        NSMutableArray *gunctar = [[NSMutableArray alloc] init];
+        NSMutableArray *guncsaat = [[NSMutableArray alloc] init];
+    
+    
         butce   = [ABHXMLHelper getValuesWithTag:@"BUTCE" fromEnvelope:[responses objectAtIndex:0]];
         fiili   = [ABHXMLHelper getValuesWithTag:@"FIILI" fromEnvelope:[responses objectAtIndex:0]];
         oran    = [ABHXMLHelper getValuesWithTag:@"ORAN" fromEnvelope:[responses objectAtIndex:0]];
         gereken = [ABHXMLHelper getValuesWithTag:@"GEREKEN" fromEnvelope:[responses objectAtIndex:0]];
-        
+        gunctar = [ABHXMLHelper getValuesWithTag:@"CPUDT" fromEnvelope:[responses objectAtIndex:0]];
+        guncsaat = [ABHXMLHelper getValuesWithTag:@"CPUTM" fromEnvelope:[responses objectAtIndex:0]];
+    
+    
         
         if ([butce count] > 0) {
             
@@ -93,15 +99,32 @@
                 NSString *userFiili   = [fiili objectAtIndex:sayac];
                 NSString *userOran    = [oran objectAtIndex:sayac];
                 NSString *userGereken = [gereken objectAtIndex:sayac];
+                NSString *guncelTarih = [gunctar objectAtIndex:sayac];
+                NSString *guncelSaat  = [guncsaat objectAtIndex:sayac];
                 
-                NSArray  *arr = [NSArray arrayWithObjects:userButce,userFiili,userOran,userGereken,nil];
+                NSArray  *arr = [NSArray arrayWithObjects:userButce,userFiili,userOran,userGereken,guncelTarih,guncelSaat,nil];
                 
                 [campaignDetail addObject:arr];
             }
         }
-        
+    
         [tableVC reloadData];
         [super stopAnimationOnView];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+//    [formatter setLocale:[NSLocale systemLocale]];
+    NSDate *date = [formatter dateFromString:[[campaignDetail objectAtIndex:0] objectAtIndex:4]];
+    
+    [formatter setDateFormat:@"dd.MM.yyyy"];
+    NSString *dateString = [formatter stringFromDate:date];
+    
+    NSString *message = [NSString stringWithFormat:@"%@%@%@%@%@",@"Bu raporun içeriği ", dateString,@" ", [[campaignDetail objectAtIndex:0] objectAtIndex:5], @" tarihinde kaydedilmiştir."];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uyarı" message: message delegate:nil cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
+    
+    [alert show];
+    return;
 }
 
 #pragma tableView dataSources

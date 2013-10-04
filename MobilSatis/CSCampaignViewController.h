@@ -12,6 +12,7 @@
 @interface CSCampaignViewController : CSBaseViewController<UITableViewDataSource,UITableViewDelegate, UIAlertViewDelegate,ABHSAPHandlerDelegate>
 {
     NSMutableArray *campaignTable;
+    NSMutableArray *messageTable;
     IBOutlet UITableView *tableVC;
     CSUser *userMyk;
 }

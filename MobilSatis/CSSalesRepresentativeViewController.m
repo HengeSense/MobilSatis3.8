@@ -176,6 +176,7 @@
     salesRepresentative = [[NSMutableArray alloc] init];
     NSMutableArray *customerNumbers = [[NSMutableArray alloc] init];
     NSMutableArray *customerNames = [[NSMutableArray alloc] init];
+    NSMutableArray *customerPhones = [[NSMutableArray alloc] init];
     NSMutableArray *xcor = [[NSMutableArray alloc] init];
     NSMutableArray *ycor = [[NSMutableArray alloc] init];
     
@@ -183,7 +184,8 @@
     CSSalesRepresentative *tempSalesRepresentative;
     
     customerNumbers = [ABHXMLHelper getValuesWithTag:@"KUNNR" fromEnvelope:myResponse];
-    customerNames = [ABHXMLHelper getValuesWithTag:@"NAME2" fromEnvelope:myResponse];
+    customerNames   = [ABHXMLHelper getValuesWithTag:@"NAME2" fromEnvelope:myResponse];
+    customerPhones  = [ABHXMLHelper getValuesWithTag:@"TELF1" fromEnvelope:myResponse];
     xcor = [ABHXMLHelper getValuesWithTag:@"XCOOR" fromEnvelope:myResponse];
     ycor = [ABHXMLHelper getValuesWithTag:@"YCOOR" fromEnvelope:myResponse];
     
@@ -192,8 +194,9 @@
         
         [tempSalesRepresentative setKunnr:[customerNumbers objectAtIndex:sayac ]];
         [tempSalesRepresentative setName2:[customerNames objectAtIndex:sayac ]];
+        [tempSalesRepresentative setTelf1:[customerPhones objectAtIndex:sayac]];
         
-        tempPoint = [[CSMapPoint alloc] initWithCoordinate:CLLocationCoordinate2DMake([[ycor objectAtIndex:sayac] doubleValue], [[xcor objectAtIndex:sayac] doubleValue]) title:[tempSalesRepresentative name2]];
+        tempPoint = [[CSMapPoint alloc] initWithCoordinate:CLLocationCoordinate2DMake([[ycor objectAtIndex:sayac] doubleValue], [[xcor objectAtIndex:sayac] doubleValue]) title:[NSString stringWithFormat:@"%@%@%@",  [tempSalesRepresentative name2],@" - ",[tempSalesRepresentative telf1]]];
         [tempSalesRepresentative setLocationCoordinate:tempPoint];
         [tempPoint setPngName:[self getAnnotationPngNameFromCustomer:tempSalesRepresentative]];
         
@@ -256,6 +259,7 @@
     NSMutableArray *columns = [[NSMutableArray alloc] init];
     [columns addObject:@"KUNNR"];
     [columns addObject:@"NAME2"];
+    [columns addObject:@"TELF1"];
     [columns addObject:@"XCOOR"];
     [columns addObject:@"YCOOR"];
     
@@ -263,6 +267,7 @@
     [sapHandler setDelegate:self];
     [sapHandler prepRFCWithHostName:[ABHConnectionInfo getR3HostName] andClient:[ABHConnectionInfo getR3Client] andDestination:[ABHConnectionInfo getR3Destination] andSystemNumber:[ABHConnectionInfo getR3SystemNumber] andUserId:[ABHConnectionInfo getR3UserId] andPassword:[ABHConnectionInfo getR3Password] andRFCName:@"ZMOB_GET_TEMSILCI"];
     [sapHandler addImportWithKey:@"I_VKBUR" andValue:[[pickerViewList objectAtIndex:selectedRow] objectAtIndex:0]];
+    [sapHandler addImportWithKey:@"I_MYK" andValue:kunnr];
     
     [sapHandler setDelegate:self];
     [sapHandler addTableWithName:headerTable andColumns:columns];
@@ -283,7 +288,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     
     CSSalesRepresentative *temp = [salesRepresentative objectAtIndex:indexPath.row];
-    [[cell textLabel]setText:temp.name2];
+    [[cell textLabel]setText:[NSString stringWithFormat:@"%@%@%@",  [temp name2],@" - ",[temp telf1]]];
     [[cell detailTextLabel] setText:temp.kunnr];
     [[cell textLabel] setTextColor:[UIColor whiteColor]];
     [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
