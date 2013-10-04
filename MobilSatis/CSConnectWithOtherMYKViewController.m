@@ -91,26 +91,20 @@ int countNumber = 0;
             NSString *e_return = [[ABHXMLHelper getValuesWithTag:@"E_RETURN" fromEnvelope:myResponse] objectAtIndex:0];
             if (![e_return isEqualToString:@"F"]) {
                 {
-//                    NSArray *viewsArray = [self.navigationController viewControllers];
-//                
-//                    CSLoginViewController *login = (CSLoginViewController *)[viewsArray objectAtIndex:0];
-//                    [self.navigationController popToViewController:login animated:YES];
-                    
                     CSAppDelegate *del = (CSAppDelegate *)[[UIApplication sharedApplication] delegate];
                     del.otherMykUser = [lastMYK partner];
                     
-                    CSLoginViewController *login = [[CSLoginViewController alloc] init];
+                    CSLoginViewController *loginView = [[CSLoginViewController alloc] init];
                     
-//                    [[self view] addSubview:login.view];
-
-                    UINavigationController *cont = [[UINavigationController alloc] initWithRootViewController:login];
+                    UINavigationController *cont = [[UINavigationController alloc] initWithRootViewController:loginView];
                     [self presentModalViewController:cont animated:YES];
-                    login.username.text = [[ABHXMLHelper getValuesWithTag:@"E_PARTNER" fromEnvelope:myResponse] objectAtIndex:0];
-                    login.password.text = [[ABHXMLHelper getValuesWithTag:@"E_PASSWORD" fromEnvelope:myResponse] objectAtIndex:0];
-                    login.user.sapUser = [[ABHXMLHelper getValuesWithTag:@"E_SAPUSER" fromEnvelope:myResponse] objectAtIndex:0];
                     
-                    login.isAdmin = @"X";
-                    login.connectWithMyk = @"X";
+                    loginView.username.text = [[ABHXMLHelper getValuesWithTag:@"E_PARTNER" fromEnvelope:myResponse] objectAtIndex:0];
+                    loginView.password.text = [[ABHXMLHelper getValuesWithTag:@"E_PASSWORD" fromEnvelope:myResponse] objectAtIndex:0];
+                    loginView.user.sapUser = [[ABHXMLHelper getValuesWithTag:@"E_SAPUSER" fromEnvelope:myResponse] objectAtIndex:0];
+                    
+                    loginView.isAdmin = @"X";
+                    loginView.connectWithMyk = @"X";
                 }
             }
             else

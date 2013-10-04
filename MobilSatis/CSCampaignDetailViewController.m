@@ -46,14 +46,14 @@
 
 - (void)getCampaignDetail{
     [super playAnimationOnView:self.view];
-//    NSString *currentTable    = [NSString stringWithFormat:@"ET_KAMPANYA"];
-//    NSMutableArray *columns   = [[NSMutableArray alloc] init];
-//    
-//    [columns addObject:@"ZKMID"];
-//    [columns addObject:@"ZKMTX"];
-//    [columns addObject:@"DATAB"];
-//    [columns addObject:@"DATBI"];
-//    [columns addObject:@"ZMING"];
+    //    NSString *currentTable    = [NSString stringWithFormat:@"ET_KAMPANYA"];
+    //    NSMutableArray *columns   = [[NSMutableArray alloc] init];
+    //
+    //    [columns addObject:@"ZKMID"];
+    //    [columns addObject:@"ZKMTX"];
+    //    [columns addObject:@"DATAB"];
+    //    [columns addObject:@"DATBI"];
+    //    [columns addObject:@"ZMING"];
     
     ABHSAPHandler *sapHandler = [[ABHSAPHandler alloc] initWithConnectionUrl:[ABHConnectionInfo getConnectionUrl]];
     
@@ -65,12 +65,13 @@
     
     [sapHandler setDelegate:self];
     
-//    [sapHandler addTableWithName:currentTable andColumns:columns];
+    //    [sapHandler addTableWithName:currentTable andColumns:columns];
     [sapHandler prepCall];
 }
 
 - (void)getResponseWithString:(NSString *)myResponse andSender:(ABHSAPHandler *)me
 {
+<<<<<<< HEAD
 
         NSMutableArray *responses = [ABHXMLHelper getValuesWithTag:@"ES_RESULT" fromEnvelope:myResponse];
         
@@ -90,9 +91,40 @@
         guncsaat = [ABHXMLHelper getValuesWithTag:@"CPUTM" fromEnvelope:[responses objectAtIndex:0]];
     
     
+=======
+    
+    NSMutableArray *responses = [ABHXMLHelper getValuesWithTag:@"ES_RESULT" fromEnvelope:myResponse];
+    
+    NSMutableArray *butce   = [[NSMutableArray alloc] init];
+    NSMutableArray *fiili   = [[NSMutableArray alloc] init];
+    NSMutableArray *oran    = [[NSMutableArray alloc] init];
+    NSMutableArray *gereken = [[NSMutableArray alloc] init];
+    NSMutableArray *gunctar = [[NSMutableArray alloc] init];
+    NSMutableArray *guncsaat = [[NSMutableArray alloc] init];
+    
+    
+    butce   = [ABHXMLHelper getValuesWithTag:@"BUTCE" fromEnvelope:[responses objectAtIndex:0]];
+    fiili   = [ABHXMLHelper getValuesWithTag:@"FIILI" fromEnvelope:[responses objectAtIndex:0]];
+    oran    = [ABHXMLHelper getValuesWithTag:@"ORAN" fromEnvelope:[responses objectAtIndex:0]];
+    gereken = [ABHXMLHelper getValuesWithTag:@"GEREKEN" fromEnvelope:[responses objectAtIndex:0]];
+    gunctar = [ABHXMLHelper getValuesWithTag:@"CPUDT" fromEnvelope:[responses objectAtIndex:0]];
+    guncsaat = [ABHXMLHelper getValuesWithTag:@"CPUTM" fromEnvelope:[responses objectAtIndex:0]];
+    
+    
+    
+    if ([butce count] > 0) {
+>>>>>>> eb3f4740864676d5e73d9b64db2a0c792dfa5440
         
-        if ([butce count] > 0) {
+        for (int sayac = 0; sayac<[butce count]; sayac++) {
             
+            NSString *userButce   = [butce objectAtIndex:sayac];
+            NSString *userFiili   = [fiili objectAtIndex:sayac];
+            NSString *userOran    = [oran objectAtIndex:sayac];
+            NSString *userGereken = [gereken objectAtIndex:sayac];
+            NSString *guncelTarih = [gunctar objectAtIndex:sayac];
+            NSString *guncelSaat  = [guncsaat objectAtIndex:sayac];
+            
+<<<<<<< HEAD
             for (int sayac = 0; sayac<[butce count]; sayac++) {
                 
                 NSString *userButce   = [butce objectAtIndex:sayac];
@@ -114,6 +146,20 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
 //    [formatter setLocale:[NSLocale systemLocale]];
+=======
+            NSArray  *arr = [NSArray arrayWithObjects:userButce,userFiili,userOran,userGereken,guncelTarih,guncelSaat,nil];
+            
+            [campaignDetail addObject:arr];
+        }
+    }
+    
+    [tableVC reloadData];
+    [super stopAnimationOnView];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    //    [formatter setLocale:[NSLocale systemLocale]];
+>>>>>>> eb3f4740864676d5e73d9b64db2a0c792dfa5440
     NSDate *date = [formatter dateFromString:[[campaignDetail objectAtIndex:0] objectAtIndex:4]];
     
     [formatter setDateFormat:@"dd.MM.yyyy"];
@@ -142,26 +188,26 @@
     
     if ([campaignDetail count] > 0)
     {
-    switch (indexPath.row) {
-        case 0:
-            [[cell textLabel] setText:@"Bütçe"];
-            [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValue:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
-            break;
-        case 1:
-            [[cell textLabel] setText:@"Fiili"];
-            [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValue:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
-            break;
-        case 2:
-            [[cell textLabel] setText:@"Gerç.Oranı(%)"];
-            [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValueWithDecimal:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
-            break;
-        case 3:
-            [[cell textLabel] setText:@"Gereken"];
-            [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValue:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
-            break;
-        default:
-            break;
-    }
+        switch (indexPath.row) {
+            case 0:
+                [[cell textLabel] setText:@"Bütçe"];
+                [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValue:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
+                break;
+            case 1:
+                [[cell textLabel] setText:@"Fiili"];
+                [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValue:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
+                break;
+            case 2:
+                [[cell textLabel] setText:@"Gerç.Oranı(%)"];
+                [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValueWithDecimal:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
+                break;
+            case 3:
+                [[cell textLabel] setText:@"Gereken"];
+                [[cell detailTextLabel] setText:[ABHXMLHelper correctNumberValue:[[campaignDetail objectAtIndex:0] objectAtIndex:indexPath.row]]];
+                break;
+            default:
+                break;
+        }
     }
     
     [cell setSelectionStyle:UITableViewCellEditingStyleNone];

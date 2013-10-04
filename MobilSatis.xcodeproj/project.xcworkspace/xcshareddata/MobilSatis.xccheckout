@@ -5,19 +5,31 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>AD691A4F-7942-4490-8618-C5DDF3F170A6</string>
+=======
+	<string>2989A874-43D6-4CC0-B10C-3B75C35079AC</string>
+>>>>>>> eb3f4740864676d5e73d9b64db2a0c792dfa5440
 	<key>IDESourceControlProjectName</key>
 	<string>MobilSatis</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>7BDEABFB-003F-4386-8ED9-09DCD80B1BC0</key>
+=======
+		<key>99E84E65-C92A-4003-978C-F21B17DE7B16</key>
+>>>>>>> eb3f4740864676d5e73d9b64db2a0c792dfa5440
 		<string>https://github.com/alpkeser/MobilSatis3.8.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MobilSatis.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>7BDEABFB-003F-4386-8ED9-09DCD80B1BC0</key>
+=======
+		<key>99E84E65-C92A-4003-978C-F21B17DE7B16</key>
+>>>>>>> eb3f4740864676d5e73d9b64db2a0c792dfa5440
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +37,22 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
+<<<<<<< HEAD
 	<string>7BDEABFB-003F-4386-8ED9-09DCD80B1BC0</string>
+=======
+	<string>99E84E65-C92A-4003-978C-F21B17DE7B16</string>
+>>>>>>> eb3f4740864676d5e73d9b64db2a0c792dfa5440
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+<<<<<<< HEAD
 			<string>7BDEABFB-003F-4386-8ED9-09DCD80B1BC0</string>
+=======
+			<string>99E84E65-C92A-4003-978C-F21B17DE7B16</string>
+>>>>>>> eb3f4740864676d5e73d9b64db2a0c792dfa5440
 			<key>IDESourceControlWCCName</key>
 			<string>MobilSatis3</string>
 		</dict>

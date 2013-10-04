@@ -65,11 +65,7 @@
 
 #pragma mark - Map Delegates
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annotationView didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState 
-{
- 
-    
-    
-    //..Whatever you want to happen when the dragging starts or stops
+{    
 }
 
 - (void)zoomToMapPoint:(CSMapPoint*)point{
@@ -118,7 +114,7 @@
                 CSCustomer *tempCustomer = [[CSCustomer alloc] init];
                 [tempCustomer setKunnr:[kunnrTextField text]];
                 
-                NSString *response = [CSGeovisionHandler sendCoordinatesToGeovisionFromUser:user andCustomer:tempCustomer andOldLocation:CLLocationCoordinate2DMake(0, 0) andNewLocation:[newMapPoint coordinate] andText:[adressTextView text]];
+                NSString *response = [CSGeovisionHandler sendCoordinatesToGeovisionFromUser:user andCustomer:tempCustomer andOldLocation:CLLocationCoordinate2DMake(0, 0) andNewLocation:[[customer locationCoordinate] coordinate] andText:@" "];
                 
                 if (![response isEqualToString:@"Done."])
                 {
@@ -182,6 +178,7 @@
     //putCoordinate
     // [mapView addAnnotation:user.location];
     mapView.delegate = self;
+    
     [self->mapView addAnnotation:customer.locationCoordinate];
     [self zoomToMapPoint:customer.locationCoordinate];
     UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] 

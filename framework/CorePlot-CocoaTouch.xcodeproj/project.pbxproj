@@ -1104,6 +1104,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC141B2A-D3F8-4341-A09E-F21179162530";
 				SDKROOT = iphoneos6.1;
 				SYMROOT = "$(PROJECT_DIR)/../build";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -1126,6 +1127,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC141B2A-D3F8-4341-A09E-F21179162530";
 				SDKROOT = iphoneos6.1;
 				SYMROOT = "$(PROJECT_DIR)/../build";
+				VALID_ARCHS = "arm64 armv7";
 				ZERO_LINK = NO;
 			};
 			name = Release;
