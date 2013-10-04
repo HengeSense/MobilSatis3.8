@@ -484,7 +484,10 @@
         isCoolerAddition = YES;
         selectedCooler = [[CSCooler alloc] init];
         [selectedCooler setSernr:@" "];
-        [self barcodeReader];
+        UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"Soğutucu Ekle" delegate:self cancelButtonTitle:@"Geri" destructiveButtonTitle:nil otherButtonTitles:@"Kamerayla", @"Elle", nil];
+        action.tag  = 3;
+        
+        [action showInView:self.view];
     }
     else {
         isCoolerAddition = YES;
@@ -552,6 +555,23 @@
             case 3:
                 
                 break;
+            default:
+                break;
+        }
+    }
+    else if (actionSheet.tag == 3)
+    {
+        switch (buttonIndex) {
+            case 0:
+                [self barcodeReader];
+                break;
+            case 1:
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Soğutucu Ekleme" message:@"Barkod Numarası" delegate:self cancelButtonTitle:@"Geri" otherButtonTitles:@"Gönder", nil];
+                alert.alertViewStyle =UIAlertViewStylePlainTextInput;
+                alert.tag = 8;
+                [alert show];
+            }
             default:
                 break;
         }
@@ -687,7 +707,12 @@
     else if ([alertView tag] == 4) {
         switch (buttonIndex) {
             case 0:
-                [self barcodeReader];
+            {
+                UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"Soğutucu Ekle" delegate:self cancelButtonTitle:@"Geri" destructiveButtonTitle:nil otherButtonTitles:@"Kamerayla", @"Elle", nil];
+                action.tag  = 3;
+                
+                [action showInView:self.view];
+            }
                 break;
             case 1:
                 [self sendUpdatedCoolerInformation:customer.kunnr];
@@ -728,6 +753,19 @@
                 [textField setText:@""];
                 [self.view addSubview:textField];
                 [textField becomeFirstResponder];
+                break;
+            default:
+                break;
+        }
+    else if ([alertView tag] == 8)
+        switch (buttonIndex) {
+            case 0:
+                
+                break;
+            case 1:
+                self.barcodeText = [[alertView textFieldAtIndex:0] text];
+                
+                [self checkBarcode];
                 break;
             default:
                 break;

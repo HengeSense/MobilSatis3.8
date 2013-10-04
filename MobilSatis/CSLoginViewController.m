@@ -46,8 +46,6 @@
     }
     
     self = [super initWithNibName:nibName bundle:nil];
-//    [[self navigationController] setDelegate:self];
-//    [[self navigationController] setNavigationBarHidden:NO];
     
     return self;
 }
@@ -56,7 +54,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
 
     return self;
@@ -135,14 +133,13 @@
     if ([super isAnimationRunning]) {
         return;
     }
-    //make some cool stuf too put logo vice versa
     CSInfoViewController *infoViewController = [[CSInfoViewController alloc] initWithUser:user];
     [[self navigationController] pushViewController:infoViewController animated:YES];
 }
 
 - (IBAction)forgotMyPassword{
     CSRegisterUserViewController *registerUserViewController = [[CSRegisterUserViewController alloc] initWithUser:user];
-    [[self navigationController]pushViewController:registerUserViewController animated:YES];
+    [[self navigationController] pushViewController:registerUserViewController animated:YES];
 }
 
 - (void)getResponseWithString:(NSString *)myResponse andSender:(ABHSAPHandler *)me {
@@ -372,14 +369,9 @@
     else{
         //   [username setText:@"31305001"];
     }
-    
-//    [password addTarget:self action:@selector(onTextFieldDidChange) forControlEvents:UIControlEventEditingChanged];
-//    [username addTarget:self action:@selector(onTextFieldDidChange) forControlEvents:UIControlEventEditingChanged];
+
     username.text = [[NSUserDefaults standardUserDefaults]
                      stringForKey:@"username"];
-
-    // AATAC BURAYI DEĞİŞTİRMEYI UNUTMA
-//    isAdmin = @"X";
 }
 - (void)viewDidUnload
 {
@@ -503,6 +495,10 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
++ (id)getTheLoginViewBack {
+    return self;
 }
 
 @end

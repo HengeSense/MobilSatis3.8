@@ -90,6 +90,7 @@
     NSMutableArray *columns2 = [[NSMutableArray alloc] init];
     [columns2 addObject:@"KUNNR"];
     [columns2 addObject:@"NAME2"];
+    [columns2 addObject:@"TELF1"];
     [columns2 addObject:@"XCOOR"];
     [columns2 addObject:@"YCOOR"];
     
@@ -177,7 +178,8 @@
 - (void)initSalesRepresentativeFromResponse:(NSString*)myResponse
 {
     NSMutableArray *customerNumbers = [[NSMutableArray alloc] init];
-    NSMutableArray *customerNames = [[NSMutableArray alloc] init];
+    NSMutableArray *customerNames   = [[NSMutableArray alloc] init];
+    NSMutableArray *customerPhones  = [[NSMutableArray alloc] init];
     NSMutableArray *xcor = [[NSMutableArray alloc] init];
     NSMutableArray *ycor = [[NSMutableArray alloc] init];
     
@@ -185,6 +187,7 @@
     CSSalesRepresentative *tempSalesRepresentative;
     customerNumbers = [ABHXMLHelper getValuesWithTag:@"KUNNR" fromEnvelope:myResponse];
     customerNames = [ABHXMLHelper getValuesWithTag:@"NAME2" fromEnvelope:myResponse];
+    customerPhones = [ABHXMLHelper getValuesWithTag:@"TELF1" fromEnvelope:myResponse];
     xcor = [ABHXMLHelper getValuesWithTag:@"XCOOR" fromEnvelope:myResponse];
     ycor = [ABHXMLHelper getValuesWithTag:@"YCOOR" fromEnvelope:myResponse];
     
@@ -193,8 +196,9 @@
         
         [tempSalesRepresentative setKunnr:[customerNumbers objectAtIndex:sayac ]];
         [tempSalesRepresentative setName2:[customerNames objectAtIndex:sayac ]];
+        [tempSalesRepresentative setTelf1:[customerPhones objectAtIndex:sayac ]];
         
-        tempPoint = [[CSMapPoint alloc] initWithCoordinate:CLLocationCoordinate2DMake([[ycor objectAtIndex:sayac] doubleValue], [[xcor objectAtIndex:sayac] doubleValue]) title:[tempSalesRepresentative name2]];
+        tempPoint = [[CSMapPoint alloc] initWithCoordinate:CLLocationCoordinate2DMake([[ycor objectAtIndex:sayac] doubleValue], [[xcor objectAtIndex:sayac] doubleValue]) title:[NSString stringWithFormat:@"%@%@%@",  [tempSalesRepresentative name2],@" - ",[tempSalesRepresentative telf1]]];
         [tempSalesRepresentative setLocationCoordinate:tempPoint];
         [customers addObject:tempSalesRepresentative];
         

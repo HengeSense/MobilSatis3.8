@@ -56,6 +56,7 @@
 - (IBAction)makeKeyboardGoAway;
 -(IBAction)changeUserPassword:(id)sender;
 - (void)downloadUpdatedApp;
++ (id)getTheLoginViewBack;
 @end
 
 @protocol LoginDelegate<NSObject>
